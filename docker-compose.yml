@@ -1,0 +1,13 @@
+app:
+ build: ./code
+# image: myapp:code
+ volumes:
+  - ./code:/var/www/myapp
+ 
+nginx:
+ build: ./nginx
+# image: myapp:nginx
+ ports:
+  - 2222:80
+ volumes_from:
+  - app
